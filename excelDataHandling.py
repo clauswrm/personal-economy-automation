@@ -66,7 +66,7 @@ def insertTransactionData(sheet, transactions):
 				try:
 					category = categories[int(input("Please name the category (0 - 4): "))]
 				except (ValueError, IndexError) as e:
-					print("Try again")
+					print("Try again.")
 
 		startIndex, endIndex = "C" + str(categoryRows[category][0]), "E" + str(categoryRows[category][0])
 		cells = sheet[startIndex:endIndex][0]  # Sheet slicing returns a tuple of a single tuple, therfore the [0]
