@@ -81,12 +81,18 @@ def insertTransactionData(sheet, transactions):
 
 
 def writeTransaction(transaction, cells):
-	""" Writes the transaction (date, text, amount) to the cells """
+	""" Writes the transaction [date, description, amount] to the cells """
 	for field, cell in zip(transaction, cells):
 		cell.value = field
 
 
 def getCategory(transaction):
+	"""
+	Gets the transactions category based on its description.
+
+	:param transaction: A list on the form [date, descripton, amount].
+	:return: A string <category>, or the word "manual" if the description couldn't be determined.
+	"""
 	categories = {"Mat & forbruk": ["rema", "bunnpris", "kiwi", "coop", "extra", "joker", "hangaren", "sit",
 									"petters pizza", "resturant", "kiosk"],
 				  "Fest, gøy & snop": ["serveringsgjeng", "samfundet", "vinmonopolet", "reddkjellerne"],
